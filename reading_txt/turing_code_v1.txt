@@ -1,0 +1,35 @@
+1. msg = "hello"
+
+
+2. using ascii code replace every char in msg
+
+    m1: h -> 104
+    m2: e -> 101
+    m3: l -> 108
+    m4: l -> 108
+    m5: o -> 111
+
+
+3. set a key(prime)
+
+
+4. encrypt_msg = every_char * key
+    e1, e2, e3, e4, e5 
+
+    so e_i = m_i * key
+
+    encrypt_msg = msg * key
+
+
+5. decrypt by finding the gcd of e_i and e_j
+
+    gcd(e_i, e_j) = key
+
+    e.g.:
+        55 = 11 * 5
+        10 =  2 * 5
+        gcd(55, 10) = 5
+
+    then we can decrypt any encrypt_msg by key
+
+    msg = encrypt_msg / key
