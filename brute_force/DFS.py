@@ -20,6 +20,9 @@
         ............................
 '''
 
+'''
+    this approach is 1 + 2 + 4 + ... + 2**count = O(2**(count+1))
+'''
 
 def DFS(arr, index, sum, key, count):
     
