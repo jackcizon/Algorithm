@@ -13,6 +13,7 @@
         **WWWW******W*
 
     in all 8 directions, all W.
+    so the O(8*r*c) = O(r*c);
 
     first set a point x,y = 0, 0
     then the 8 directions coordinates should be
