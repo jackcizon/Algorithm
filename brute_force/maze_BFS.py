@@ -16,6 +16,7 @@ def is_blocked(maze, row, column):
 
 
 def solve_maze(maze, start, end):
+    steps = 0
     visited = [[False for _ in range(len(maze[0]))] for _ in range(len(maze))]
 
     visited[start.x][start.y] = True
@@ -34,7 +35,7 @@ def solve_maze(maze, start, end):
 
         #if get end
         if row == end.x and column == end.y:
-            return True
+            return steps
         
         #define delta(x, y)
         dx = [-1, 0, 1, 0]
@@ -51,8 +52,10 @@ def solve_maze(maze, start, end):
         for i in range(3):
             r = row + dx[i]
             c = column + dy[i]
-            if is_valid(maze, r, c) and not visited[r][c] and not is_blocked(maze, r, c):
+            if is_valid(maze, r, c) and not visited[r][c] and\
+                not is_blocked(maze, r, c):
                  visited[r][c] = True
+                 steps += 1
                  Q.put(Pair(r, c))
 
     return False
@@ -77,7 +80,8 @@ def main():
 
     # solve the maze using BFS
     if solve_maze(maze, start, end):
-        print("Maze solved!")
+        print("Maze solved, total steps : {}"\
+            .format(solve_maze(maze, start, end)))
     else:
         print("Maze cannot be solved!")
 
