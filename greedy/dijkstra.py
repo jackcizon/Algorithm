@@ -5,7 +5,6 @@ gray = 1
 black = 2
 
 def dijkstra(nodes, distance, color, cost):
-    minv = 0
     #init all inf, and not visted(white)
     for i in range(nodes):
         distance[i] = inf
