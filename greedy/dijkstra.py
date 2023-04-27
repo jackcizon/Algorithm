@@ -1,4 +1,3 @@
-max = 100
 inf = 1 << 21
 white = 0
 gray = 1
