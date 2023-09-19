@@ -4,6 +4,9 @@ def partition(arr, low, high):
 
     for j in range(low, high):
         
+        """
+        i <= j, arr[i] >= arr[j], pivot is virtual pivot
+        """
         if arr[j] < pivot:
             arr[i], arr[j] = arr[j], arr[i]
             i += 1
