@@ -49,7 +49,6 @@ def get_arr(arr):
 def main():
     data = gen_data([100, 113, 88, 108, 105, 89, 66, 84, 104, 97, 109, 105, 83, 98, 94, 104])
     diff_arr = get_arr(data)
-    print(find_maxsum_subarray(diff_arr, 0, len(diff_arr) - 1))
     # Find the maximum subarray
     max_low, max_high, max_sum = find_maxsum_subarray(diff_arr, 0, len(diff_arr) - 1)
     # Create a bar chart to visualize the price changes
@@ -62,14 +61,19 @@ def main():
     plt.xticks(range(len(diff_arr)), range(1, len(diff_arr) + 1))
     plt.legend()
     plt.grid(axis='y', linestyle='--', alpha=0.7)
+    # Calculate the center position
+    center_x = max_low + (max_high - max_low) / 2
+
+    # Add text to the figure with center alignment
+    plt.text(center_x, max_sum + 2, f"Maximum Increment Days: from Day {max_low + 1} to Day {max_high + 1}.", fontsize=12, color='k', ha='center')
+    plt.text(center_x, max_sum - 5, f"Maximum Stocks: {max_sum}.", fontsize=12, color='k', ha='center')
+
+
+# Display the plot
 
     # Display the plot
     plt.tight_layout()
     plt.show()
-
-    # Print the maximum subarray and its sum
-    print("Maximum Increment Days:", diff_arr[max_low:max_high + 1])
-    print("Maximum Stocks:", max_sum)
 
 
 if __name__ == '__main__':
