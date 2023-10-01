@@ -6,6 +6,9 @@ class PriorityQueue(MaxHeap):
 
     def heap_maximum(self):
         return self.heap[0]
+    
+    def get_heap_size(self):
+        return len(self.heap)
 
     def heap_extract_max(self):
         if len(self.heap) < 1:
