@@ -1,7 +1,5 @@
 from heap_sort import MaxHeap
 
-from heap_sort import MaxHeap
-
 class PriorityQueue(MaxHeap):
     def __init__(self, heap):
         super().__init__(heap)
@@ -13,8 +11,8 @@ class PriorityQueue(MaxHeap):
         if len(self.heap) < 1:
             raise Exception("Heap underflow: The heap is empty.")
         max_val = self.heap[0]
-        self.heap[0] = self.heap[-1]
-        self.heap.pop()
+        self.heap[0] = self.heap[-1] # use last element to cover heap[0]
+        self.heap.pop() # heap_size - 1
         self.max_heapify(len(self.heap), 0)
         return max_val
 
