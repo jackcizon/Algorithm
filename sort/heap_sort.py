@@ -1,21 +1,4 @@
-'''
-    max heap implement:
-    if not empty:
-        build max heap
-        swap arr[0] and arr[size-1]
-        
-    min heap implement:
-    if not empty:
-        build min heap
-        new list[i] = pop arr[i from 0 to size-1]
-
-    pop():
-        new_list.append(pop(arr[0]))
-        swap(arr[0], arr[size-1])
-        size -= 1
-        min_heap(arr, 0)
-'''
-
+# if min-heap-sort, just change '>' to '<'
 
 def max_heapify(arr, end, start):
     left = 2 * start + 1
