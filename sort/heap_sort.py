@@ -1,51 +1,52 @@
-# if min-heap-sort, just change '>' to '<'
+# if min-heap, just change '>' to '<'
 
-def max_heapify(arr, end, start):
-    left = 2 * start + 1
-    right = 2 * start + 2
-    # define a pointer _max to point max_value_index
-    max_val_index = start
+class MaxHeap:
+    def __init__(self, heap):
+        self.heap = heap
 
-    if left < end and arr[left] > arr[max_val_index]:
-        max_val_index = left
+    def max_heapify(self, end, start):
+        left = 2 * start + 1
+        right = 2 * start + 2
+        # define a pointer _max to point max_value_index
+        max_val_index = start
 
-    if right < end and arr[right] > arr[max_val_index]:
-        max_val_index = right
+        if left < end and self.heap[left] > self.heap[max_val_index]:
+            max_val_index = left
 
-    #if pointer changed, swap and heapify the child
-    if max_val_index != start:
-        arr[start], arr[max_val_index] = arr[max_val_index], arr[start]
-        max_heapify(arr, end, max_val_index)
+        if right < end and self.heap[right] > self.heap[max_val_index]:
+            max_val_index = right
 
+        #if pointer changed, swap and heapify the child
+        if max_val_index != start:
+            self.heap[start], self.heap[max_val_index] = self.heap[max_val_index], self.heap[start]
+            self.max_heapify(end, max_val_index)
 
-def build_max_heap(arr):
-    for i in range(len(arr)//2, -1, -1):
-        max_heapify(arr, len(arr), i)
+    def build_max_heap(self):
+        for i in range(len(self.heap) // 2, -1, -1):
+            self.max_heapify(len(self.heap), i)
 
-
-def heap_sort(arr):
-    build_max_heap(arr)
-    size = len(arr) - 1
-    end = len(arr) - 1
-    for i in range(size, -1, -1):
-        arr[0], arr[i] = arr[i], arr[0]
-        end -= 1
-        max_heapify(arr, end, 0)
-
+    def heap_sort(self):
+        self.build_max_heap()
+        size = len(self.heap) - 1
+        end = len(self.heap) - 1
+        for i in range(size, -1, -1):
+            self.heap[0], self.heap[i] = self.heap[i], self.heap[0]
+            end -= 1
+            self.max_heapify(end, 0)
 
 def main():
-
-    arr = [3, 5, 2, -99, 133, 789, 0, 1, 56, 1, 7, 9, 6]
-    heap_sort(arr)
-    print(arr)
-
+    heap = [3, 5, 2, -99, 133, 789, 0, 1, 56, 1, 7, 9, 6]
+    max_heap = MaxHeap(heap)
+    max_heap.heap_sort()
+    print(max_heap.heap)
 
 if __name__ == '__main__':
     main()
 
 
+
 '''
-we do not need to build maxc heap from last element in array, beause all leaves are max_heap
+we do not need to build max heap from last element in array, beause all leaves are max_heap
 and we heapify from size//2 downto 1, to ensure after all heapify can make max_heap
 
 build_max_heap:
@@ -58,7 +59,7 @@ build_max_heap:
         1 99 1 5  2 3 <<==size, end
 
 after first sort:
-                   3 <<== arr[0]
+                   3 <<== heap[0]
                 /    |
              133        9
             /  |     /   |
