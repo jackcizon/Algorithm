@@ -29,7 +29,11 @@ def count_sort(arr):
         arr[i] = b[i]
     return arr
 
+def main():
+    arr = [2, 5, 3, 0, 2, 3, 0, 3]
+    count_sort(arr)
+    print(arr)
 
-arr = [2, 5, 3, 0, 2, 3, 0, 3]
-count_sort(arr)
-print(arr)
+
+if __name__ == '__main__':
+    main()
