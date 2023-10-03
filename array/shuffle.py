@@ -13,17 +13,17 @@ print(arr)
 
 
 '''
-在第一次迭代中（当 i 为 0 时），我们选择一个介于 0 和 n-1（含）之间的随机索引 j。这意味着 j 有 n 个可能的选择。
+In the first iteration (when i is 0), we choose a random index j between 0 and n-1 (inclusive). This means that j has n-1-0+1=n possible choices.
 
-    在第二次迭代中（当 i 为 1 时），我们在 1 和 n-1 之间选择一个随机索引 j吗，有n种选择
+    In the second iteration (when i is 1), we choose a random index j between 1 and n-1, there are n-1-1+1=n-1 choices
 
-    在第三次迭代中（当 i 为 2 时），我们在 2 和 n-1 之间选择一个随机索引 j，有n-1种选择
-    以此类推...
-    在最后一次迭代中,有1种选择
+    In the third iteration (when i is 2), we choose a random index j between 2 and n-1, with n-1-2+1=n-2 choices
+    And so on...
+    In the last iteration, there was 1 option
 
-总结果 = A(n, n) = n!
+Total result = A(n, n) = n!
 
-概率 =（这种排列可能发生的方式数量）/（总结果）
+Probability = (number of ways this permutation could happen)/(total outcome)
 
-因为每个排列发生的可性相同，对于每个排列，概率是相同的，该概率为 1/n!。
+Because each permutation is equally likely to occur, the probability is the same for each permutation, which is 1/n!.
 '''
