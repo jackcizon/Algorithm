@@ -1,6 +1,10 @@
 {
     "python.analysis.typeCheckingMode": "basic",
     "[python]": {
-        "editor.defaultFormatter": "ms-python.autopep8"
+        "editor.defaultFormatter": "ms-python.vscode-pylance"
+    },
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "config.h": "c"
     },
 }
