@@ -1,6 +1,6 @@
 # algorithm
 
-implement algorithm using python.
+implement algorithm with python.
 
 useful python lib for math
     NumPy (Numerical Python)
