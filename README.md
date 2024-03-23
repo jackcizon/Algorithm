@@ -1,6 +1,6 @@
-# algorithm
+# algorithms
 
-implement algorithm with python.
+implement basic algorithms with python.
 
 ## useful python lib for math
 
