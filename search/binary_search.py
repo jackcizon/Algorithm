@@ -1,9 +1,11 @@
-#manipluate sorted array
+'''manipluate sorted array
+time complexity: O(log(n))
+'''
 def binary_search(arr, val):
     begin = 0
     end = len(arr) - 1
     while begin <= end:
-        mid = (int)((begin + end) / 2)
+        mid = (begin + end) // 2
         if arr[mid] == val:
             print("find {}".format(val))
             return True
