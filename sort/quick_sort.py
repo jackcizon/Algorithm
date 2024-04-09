@@ -13,14 +13,18 @@ MAX_RECURSION_LIMIT = 2**20
 sys.setrecursionlimit(MAX_RECURSION_LIMIT)
 
 def partition(arr, left, right):
+    # set pivot val
     pivot = arr[left]
+
     while left < right:
         while left < right and arr[right] >= pivot:
             right -= 1
         arr[left] = arr[right]
+        
         while left < right and arr[left] <= pivot:
             left += 1
         arr[right] = arr[left]
+    
     # left = right, pivot val
     arr[left] = pivot
     return left   
