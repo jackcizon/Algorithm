@@ -5,19 +5,16 @@
 4. Starting from the area with index 0, the number of each trip is reduced by one.
 '''
 def bubble_sort(array):
+    # Total number of passes. 
     for i in range(len(array) - 1):
-    
+        # The capacity of the unsorted area is reduced by one for each pass
         for j in range(len(array) - 1 - i):
     
             if array[j] > array[j + 1]:
                 array[j], array[j + 1] = array[j + 1], array[j]
-    
-    print(array) 
+    return array
 
-array = [3, 1, 7, 8, 0, 5]
-
-bubble_sort(array)
-
-
+array = bubble_sort([3, 1, 7, 8, 0, 5])
+print(array)
 
     
