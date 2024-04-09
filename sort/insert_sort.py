@@ -1,32 +1,26 @@
+'''Select Sort
+1. Draw cards similar to poker
+2. Take the first card in your hand, and draw another card. 
+3. Check whether the subscript is valid and compare the card size. If the 
+conditions are met, move the card (array shift) and insert the touched card 
+
+Time Complexity: O(n**2)
+'''
 def insert_sort(arr):
     for i in range(1, len(arr)):
+        # touched card
         key = arr[i]
+        # index of card in hand
         j = i - 1
         
+        # check index and compare 
         while j >= 0 and arr[j] > key:
+            # array shift
             arr[j + 1] = arr[j] 
             j = j - 1
-            
+        # insert card
         arr[j + 1] = key
+    
+    return arr
 
-    print(arr) 
-
-arr = [6, 4, 3, 7, 5, 4 ,8]
-
-#insert_sort(arr)
-
-
-'''
-Array is divided into sorted and unsorted parts.The left side is the sorted part, 
-and from small to large, select the first element in the unsorted part, and compare 
-it with the maximum value of the sorted element on the left. If it is greater than 
-the value on the left, the next increment is performed.Note that the left side is a 
-sorted state from small to large, so if the key (the unsorted first element) is less 
-than the j value on the left (the maximum value on the left), then we shift the maximum 
-value on the left one position to the right and decrement j value, let the second 
-largest element on the left be compared with the key value, and so on. If the key value 
-is really small, even smaller than the smallest sorted element on the left, then the 
-j value has decreased to -1 at this time, and all The elements on the left have been 
-shifted one position to the right, then let arr[j+1] or arr[0] be the key. The comparison 
-ends, and the next loop is performed until the array is sorted and occupies the entire array.
-'''
+arr = insert_sort([6, 4, 3, 7, 5, 4 ,8])

@@ -2,51 +2,36 @@
 #divide array into two part : sorted in left and unsorted in right
 #then loop and compare then set order
 
-def select_sort(arr):
-    for i in range(len(arr) - 1):
-        min_index = i
+'''Select Sort
+1. Similar to bubble sort, the list is divided into ordered 
+area and unordered area. 
+2. Define the starting element as the minimum element in each pass, 
+obtain the index value and temporarily store it. 
+3. Compare adjacent elements in each pass, and change the minimum 
+index value if the conditions are met. 
+4. After each pass, the capacity of the unordered area is reduced by one, 
+and the capacity of the ordered area is increased by 1, and it is 
+judged whether the minimum index value changes. If it changes, 
+exchange it
+5. each pass get a min value
 
+Time Complexity: O(n**2)
+'''
+def select_sort(arr):
+    # total passes
+    for i in range(len(arr) - 1):
+        # define min value's index
+        min_index = i
+        # compare
         for j in range(i + 1, len(arr)):
             if arr[j] < arr[min_index]:
+                # change min value's index
                 min_index = j
 
+        # if index chnaged, swap
         if min_index != i:
             arr[min_index], arr[i] = arr[i], arr[min_index]
-    
-    print(arr)      
+    return arr   
 
-arr = [4, 7, 3, 1, 9, 0, 2]
-
-select_sort(arr)
-
-
-'''
-    In Python, you can get the length of a list 
-    using the len function. 
-    This works because a list in Python 
-    is a dynamic data structure that stores 
-    the length of the list as part of its internal 
-    representation. Therefore, when you pass a list
-    to a function, 
-    you can use len to get its length.
-'''
-
-'''
-    The arr parameter is a list, and you can use 
-    len(arr) to get its length.
-
-    In C, on the other hand, an array is a 
-    fixed-size data structure that does not
-    store its length as part of its
-    internal representation. 
-    When you pass an array to a function, 
-    it decays into a pointer to its first element, 
-    and the size information is lost. 
-    Therefore, you cannot use sizeof(arr) / sizeof(arr[0]) 
-    to get the length of the array inside the function.
-
-    To get around this, you need to pass 
-    the length of the array as a separate parameter 
-    to the function
-'''
-
+arr = select_sort([4, 7, 3, 1, 9, 0, 2])
+print(arr)
