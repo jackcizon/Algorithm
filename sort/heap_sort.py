@@ -30,15 +30,18 @@ class MaxHeap:
 
     def build_max_heap(self):
         heap_size = len(self.heap)
+
+        # heap_size - 1 pointer to the last child, we get its parent, and max_heapify
         for i in range((heap_size - 1) // 2, -1, -1):
             self.max_heapify(heap_size, i)
 
     def heap_sort(self):
         self.build_max_heap()
-        size = len(self.heap) - 1
+        last_index = len(self.heap) - 1
         end = len(self.heap) - 1
-        for i in range(size, 0, -1):
+        for i in range(last_index, 0, -1):
             self.heap[0], self.heap[i] = self.heap[i], self.heap[0]
+            # for each heapify, we throw a value from the last(not consider)
             end -= 1
             self.max_heapify(end, 0)
 
