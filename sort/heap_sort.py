@@ -1,12 +1,19 @@
 # if min-heap, just change '>' to '<'
+import heapq
 
 class MaxHeap:
     def __init__(self, heap):
         self.heap = heap
 
+    def get_left_child(self, parent):
+        return 2 * parent + 1
+
+    def get_right_child(self, parent):
+        return 2 * parent + 2
+
     def max_heapify(self, end, start):
-        left = 2 * start + 1
-        right = 2 * start + 2
+        left = self.get_left_child(start)
+        right = self.get_right_child(start)
         # define a pointer _max to point max_value_index
         max_val_index = start
 
@@ -22,20 +29,21 @@ class MaxHeap:
             self.max_heapify(end, max_val_index)
 
     def build_max_heap(self):
-        for i in range(len(self.heap) // 2, -1, -1):
-            self.max_heapify(len(self.heap), i)
+        heap_size = len(self.heap)
+        for i in range((heap_size - 1) // 2, -1, -1):
+            self.max_heapify(heap_size, i)
 
     def heap_sort(self):
         self.build_max_heap()
         size = len(self.heap) - 1
         end = len(self.heap) - 1
-        for i in range(size, -1, -1):
+        for i in range(size, 0, -1):
             self.heap[0], self.heap[i] = self.heap[i], self.heap[0]
             end -= 1
             self.max_heapify(end, 0)
 
 def main():
-    heap = [3, 5, 2, -99, 133, 789, 0, 1, 56, 1, 7, 9, 6]
+    heap = [3, 5, 2, -23, -99, 133, 789, -99, -23, 1, 2, 0, 1, 56, 7, 9, 6, 56, 5, 4, 6, 2]
     max_heap = MaxHeap(heap)
     max_heap.heap_sort()
     print(max_heap.heap)
