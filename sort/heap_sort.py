@@ -1,9 +1,9 @@
 # if min-heap, just change '>' to '<'
-import heapq
 
 class MaxHeap:
     def __init__(self, heap):
         self.heap = heap
+        self.build_max_heap()
 
     def get_left_child(self, parent):
         return 2 * parent + 1
@@ -35,10 +35,31 @@ class MaxHeap:
         for i in range((heap_size - 1) // 2, -1, -1):
             self.max_heapify(heap_size, i)
 
+    def extract_max(self):
+        if len(self.heap) == 0:
+            return None
+        
+        self.build_max_heap()
+
+        max_ele = self.heap[0]
+        self.heap[0] = self.heap[-1]
+        del self.heap[-1]
+
+        self.max_heapify(len(self.heap) - 1, 0)
+
+        return max_ele
+    
+    def heap_push(self, val):
+        self.heap.append(val)
+
+        self.build_max_heap()
+
     def heap_sort(self):
         self.build_max_heap()
         last_index = len(self.heap) - 1
         end = len(self.heap) - 1
+
+        # start from the last node and stop to the first node(we know it is smallest)
         for i in range(last_index, 0, -1):
             self.heap[0], self.heap[i] = self.heap[i], self.heap[0]
             # for each heapify, we throw a value from the last(not consider)
