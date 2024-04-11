@@ -51,29 +51,29 @@ def main():
 if __name__ == '__main__':
     main() 
 
-'''
-\          \ 
- \    +gap  \ 
-  \   ===>>  \ 
-   \          \ 
-    \          \ 
+# '''
+# \          \ 
+#  \    +gap  \ 
+#   \   ===>>  \ 
+#    \          \ 
+#     \          \ 
 
-divided by div
-\   \ 
- \   \     +gap//div
-  \   \    
-   \   \ 
+# divided by div
+# \   \ 
+#  \   \     +gap//div
+#   \   \    
+#    \   \ 
 
-   .....
-   .....
-final
-gap = 1, and compare adjacent element
-\\
- \\
-  \\
-   \\
-   ......
-            \\
+#    .....
+#    .....
+# final
+# gap = 1, and compare adjacent element
+# \\
+#  \\
+#   \\
+#    \\
+#    ......
+#             \\
 
-    sort over.
-''' 
+#     sort over.
+# ''' 
