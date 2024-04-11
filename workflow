@@ -1,7 +1,3 @@
-linux/windows
+# linux/windows
 
-# 1
-
-## 2
-
-### dev branch
+## branches -> main, dev
