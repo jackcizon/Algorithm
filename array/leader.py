@@ -6,8 +6,13 @@ The last element of the array must be a leader.
 
 An array usually has at least one leader
 
-Time Complexity: O(n**2)
-space Complexity: O(n)
+native approach:
+    Time Complexity: O(n**2)
+    space Complexity: O(n)
+
+max_suffix approach:
+    Time Complexity: O(n)
+    space Complexity: O(n)
 '''
 import random
 
