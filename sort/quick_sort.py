@@ -29,7 +29,7 @@ def partition(arr, left, right):
     arr[left] = pivot
     return left   
 
-def quick_sort(arr, left, right):
+def _quick_sort(arr, left, right):
     # avoid worst case, Optimization part
     # if left == right:
     #     return arr[0]
@@ -52,17 +52,23 @@ def quick_sort(arr, left, right):
     # final optimized version
     if left < right:
         random_index = random.randint(left, right)
+        # swap position
         arr[left], arr[random_index] = arr[random_index], arr[left]
 
         pivot = partition(arr, left, right)
-        quick_sort(arr, left, pivot - 1)
-        quick_sort(arr, pivot + 1, right)
+        _quick_sort(arr, left, pivot - 1)
+        _quick_sort(arr, pivot + 1, right)
+
+def quick_sort(arr):
+    _quick_sort(arr, 0, len(arr) - 1)
+
 
 def main():
     worst_case_arr = [i for i in range(100000, -1, -1)]
     start_time = time.time()
     
-    quick_sort(worst_case_arr, 0, len(worst_case_arr) - 1)
+    # quick_sort(worst_case_arr, 0, len(worst_case_arr) - 1)
+    quick_sort(worst_case_arr)
     print('run time: ', time.time() - start_time)
 
 if __name__ == '__main__':

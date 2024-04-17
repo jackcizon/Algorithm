@@ -6,7 +6,7 @@ The last element of the array must be a leader.
 
 An array usually has at least one leader
 
-native approach:
+naive approach:
     Time Complexity: O(n**2)
     space Complexity: O(n)
 
@@ -56,7 +56,7 @@ def find_max_suffix(size: int) -> list:
 
 
 if __name__ == '__main__':
-    # print('native approach :> ')
+    # print('naive approach :> ')
     # print(find_leaders(10))
     
     print('finding suffix max approach: :>')
