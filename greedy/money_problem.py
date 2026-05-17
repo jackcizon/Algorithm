@@ -31,15 +31,15 @@ def money_1(sorted_arr_dec: Sequence[Decimal], total: Decimal) -> tuple[list[int
 
 if __name__ == '__main__':
     arr_ = [
+        Decimal("100"),
         Decimal("50"),
-        Decimal("40"),
-        Decimal("25"),
-        Decimal("15"),
+        Decimal("20"),
         Decimal("10"),
         Decimal("5"),
-        Decimal("2"),
         Decimal("1"),
+        Decimal("0.5"),
         Decimal("0.1"),
+        Decimal("0.01")
     ]
 
     total_1 = Decimal("3.9")
