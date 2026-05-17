@@ -1,6 +1,10 @@
 from decimal import Decimal
 from typing import Sequence
 
+"""
+The coin change problem is a discrete combinatorial optimization problem equivalent to the unbounded knapsack problem.
+"""
+
 
 def money_0(sorted_arr_dec: Sequence[Decimal], total: Decimal) -> tuple[list[int], Decimal]:
     """
